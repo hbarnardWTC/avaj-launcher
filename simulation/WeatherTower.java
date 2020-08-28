@@ -1,0 +1,24 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   WeatherTower.java                                  :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hbarnard <wingarkorin@gmail.com>           +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/08/21 14:59:16 by hbarnard          #+#    #+#             */
+/*   Updated: 2020/08/21 14:59:16 by hbarnard         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+package simulation;
+
+public class WeatherTower extends Tower{
+	
+	public String getWeather(Coordinates coordinates){
+		return "Placeholder";
+	}
+
+	private void changeWeather(){
+
+	}
+}

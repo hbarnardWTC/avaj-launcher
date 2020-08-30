@@ -30,6 +30,10 @@ public class JetPlane extends Aircraft implements Flyable{
 
 	@Override
 	public void registerTower(WeatherTower weatherTower) {
-
+		this.weatherTower = weatherTower;
+		this.weatherTower.register(this);
+		String message = "Jetplane#" + super.name + "(" + super.id + ")" + "has registered.";
+		//Don't use sout, does some weird stuff
+		System.out.println(message);
 	}
 }

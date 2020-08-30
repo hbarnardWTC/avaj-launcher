@@ -20,9 +20,19 @@ public abstract class Tower{
 	private ArrayList<Flyable> observers = new ArrayList<Flyable>();
 
 	public void register(Flyable flyable){
+		if (!observers.contains(flyable)){
+			observers.add(flyable);
+		} else {
+			System.out.println("The new aircraft was already registered!");
+		}
 	}
 
 	public void unregister(Flyable flyable){
+		if (observers.contains(flyable)){
+			observers.remove(flyable);
+		} else {
+			System.out.println("That aircraft does not exist in our registered aircrafts");
+		}
 	}
 
 	protected void conditionsChanged(){

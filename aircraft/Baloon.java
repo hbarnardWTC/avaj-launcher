@@ -30,6 +30,10 @@ public class Baloon extends Aircraft implements Flyable{
 
 	@Override
 	public void registerTower(WeatherTower weatherTower) {
-		
+		this.weatherTower = weatherTower;
+		this.weatherTower.register(this);
+		String message = "Baloon#" + super.name + "(" + super.id + ")" + "has registered.";
+		//Don't use sout, does some weird stuff
+		System.out.println(message);
 	}
 }

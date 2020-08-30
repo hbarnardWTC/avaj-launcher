@@ -18,7 +18,8 @@ public class WeatherTower extends Tower{
 		return WeatherProvider.getProvider().getCurrentWeather(coordinates);
 	}
 
-	private void changeWeather(){
+	//Apparently no mod is package private? So weird
+	void changeWeather(){
 		this.conditionsChanged();
 	}
 }

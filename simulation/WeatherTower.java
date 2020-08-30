@@ -15,10 +15,10 @@ package simulation;
 public class WeatherTower extends Tower{
 	
 	public String getWeather(Coordinates coordinates){
-		return "Placeholder";
+		return WeatherProvider.getProvider().getCurrentWeather(coordinates);
 	}
 
 	private void changeWeather(){
-
+		this.conditionsChanged();
 	}
 }

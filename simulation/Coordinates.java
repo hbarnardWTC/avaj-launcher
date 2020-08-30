@@ -21,9 +21,25 @@ public class Coordinates{
 
 	//constructor
 	public Coordinates(int longitude, int latitude, int height){
-		this.height = height;
-		this.latitude = latitude;
-		this.longitude = longitude;
+		if (height <= 0) {
+			this.height = 0;
+		} else if (height > 100) {
+			this.height = 100;
+		} else {
+			this.height = height;
+		}
+
+		if (latitude <= 0) {
+			this.latitude = 0;
+		} else {
+			this.latitude = latitude;
+		}
+		
+		if (longitude <= 0) {
+			this.longitude = 0;
+		} else {
+			this.longitude = longitude;
+		}
 	}
 
 	//getters

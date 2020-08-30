@@ -12,6 +12,8 @@
 
 package aircraft;
 
+import simulation.Coordinates;
+
 public abstract class AircraftFactory{
 
 	public static Flyable newAircraft(String type,
@@ -20,6 +22,15 @@ public abstract class AircraftFactory{
 									  int latitude,
 									  int height)
 	{
+		Coordinates coordinates = new Coordinates(longitude, latitude, height);
+
+		if (type.toLowerCase().trim().equals("baloon")){
+			return new Baloon(name, coordinates);
+		} else if (type.toLowerCase().trim().equals("helicopter")){
+			return new Helicopter(name, coordinates);
+		} else if (type.toLowerCase().trim().equals("jetplane")){
+			return new JetPlane(name ,coordinates);
+		}
 		return null;
 	}
 }

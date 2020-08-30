@@ -14,7 +14,7 @@ package simulation;
 
 public class WeatherProvider {
 	private static WeatherProvider weatherProvider;
-	private static String weather;
+	private static String[] weather = {"RAIN", "FOG", "SUN", "SNOW"};
 
 	public WeatherProvider(){
 
@@ -24,6 +24,6 @@ public class WeatherProvider {
 		return weatherProvider;
 	}
 	public static String getCurrentWeather(Coordinates coordinates) {
-		return weather;
+		return weather[0];
 	}
 }

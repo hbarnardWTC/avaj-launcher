@@ -24,9 +24,12 @@ public abstract class Aircraft {
 	protected Aircraft(String name, Coordinates coordinates){
 		this.name = name;
 		this.coordinates = coordinates;
+		this.nextId();
 	}
 
 	private long nextId(){
-		return idCounter;
+		long temp = Aircraft.idCounter;
+		Aircraft.idCounter++;
+		return temp;
 	}
 }

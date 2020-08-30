@@ -48,10 +48,12 @@ public class Main {
                 banana = line.split(" ");
                 if (banana.length != 5) {
                     System.out.println("Missing values on line " + Integer.toString(lines));
+                    reader.close();
                     return;
                 }
                 if (!(banana[0].equalsIgnoreCase("Baloon") || banana[0].equalsIgnoreCase("Helicopter") || banana[0].equalsIgnoreCase("Jetplane"))) {
                     System.out.println("Nonexistent aircraft type on " + Integer.toString(lines));
+                    reader.close();
                     return;
                 }
                 try {
@@ -61,6 +63,7 @@ public class Main {
                 } catch (Exception e) {
                     //TODO: handle exception
                     System.out.println("A non coordinate was parsed on line " + Integer.toString(lines));
+                    reader.close();
                     return;
                 }
                 switch (banana[0].toLowerCase()){

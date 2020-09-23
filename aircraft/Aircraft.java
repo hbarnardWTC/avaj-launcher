@@ -21,15 +21,13 @@ public abstract class Aircraft {
 	protected Coordinates coordinates;
 	private static long idCounter = 0;
 
-	protected Aircraft(String name, Coordinates coordinates){
-		this.name = name;
-		this.coordinates = coordinates;
-		this.nextId();
-	}
+    protected Aircraft(String name, Coordinates coordinates) {
+        this.id = this.nextId();
+        this.name = name;
+        this.coordinates = coordinates;
+    }
 
-	private long nextId(){
-		long temp = Aircraft.idCounter;
-		Aircraft.idCounter++;
-		return temp;
-	}
+    private long nextId() {
+        return ++(Aircraft.idCounter);
+    }
 }

@@ -17,7 +17,6 @@ public class WeatherProvider {
 	private static String[] weather = {"RAIN", "FOG", "SUN", "SNOW"};
 
 	public WeatherProvider(){
-
 	}
 
 	public static WeatherProvider getProvider() {

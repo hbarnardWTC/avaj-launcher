@@ -18,6 +18,7 @@ public class Main {
         String fileName = args[0];
 
         WeatherTower weatherTower = new WeatherTower();
+        Printer.setFile("Result");
         int simulationCount = 0;
 
         try {
@@ -35,7 +36,6 @@ public class Main {
                         System.out.println("The amount of simulations needs to be a positive number");
                     }
                 } catch (Exception e) {
-                    //TODO: handle exception
                     System.out.println("First line does not contain an integer!");
                     return;
                 }
@@ -61,26 +61,20 @@ public class Main {
                     test = Integer.parseInt(banana[3]);
                     test = Integer.parseInt(banana[4]);
                 } catch (Exception e) {
-                    //TODO: handle exception
                     System.out.println("A non coordinate was parsed on line " + Integer.toString(lines));
                     reader.close();
                     return;
                 }
-                switch (banana[0].toLowerCase()){
-                    case "baloon": {
+                if (banana[0].toLowerCase().equals("baloon")){
                         new Baloon(banana[1], new Coordinates(Integer.parseInt(banana[2]),Integer.parseInt(banana[3]), Integer.parseInt(banana[4]))).registerTower(weatherTower);
-                    }
-                    case "helicopter": {
+                    } else if (banana[0].toLowerCase().equals("helicopter")){
                         new Helicopter(banana[1], new Coordinates(Integer.parseInt(banana[2]),Integer.parseInt(banana[3]), Integer.parseInt(banana[4]))).registerTower(weatherTower);
-                    }
-                    case "jetplane": {
+                    } else if (banana[0].toLowerCase().equals("jetplane")){
                         new JetPlane(banana[1], new Coordinates(Integer.parseInt(banana[2]),Integer.parseInt(banana[3]), Integer.parseInt(banana[4]))).registerTower(weatherTower);
                     }
-                }
             }
             reader.close();
         } catch (Exception e) {
-            //TODO: handle exception
             System.out.println(e.getMessage());
             return;
         }

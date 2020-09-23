@@ -13,6 +13,7 @@
 package aircraft;
 
 import simulation.Coordinates;
+import simulation.Printer;
 import simulation.WeatherTower;
 
 public class Baloon extends Aircraft implements Flyable{
@@ -28,16 +29,16 @@ public class Baloon extends Aircraft implements Flyable{
 		String weather = weatherTower.getWeather(this.coordinates);
 		if (weather.equals("SUN")) {
 			this.coordinates = new Coordinates(coordinates.getLongitude() + 2, coordinates.getLatitude(), coordinates.getHeight() + 4);
-			System.out.println("Baloon#" + this.name + "(" + this.id + "): is floating away! It shall be naught but a speck soon!");
+			Printer.addLine("Baloon#" + this.name + "(" + this.id + "): is floating away! It shall be naught but a speck soon!");
 		} else if (weather.equals("RAIN")) {
 			this.coordinates = new Coordinates(coordinates.getLongitude(), coordinates.getLatitude(), coordinates.getHeight() - 5);
-			System.out.println("Baloon#" + this.name + "(" + this.id + "): is sopping wet. A baloon in the rain? Who authorised this??");
+			Printer.addLine("Baloon#" + this.name + "(" + this.id + "): is sopping wet. A baloon in the rain? Who authorised this??");
 		} else if (weather.equals("FOG")) {
 			this.coordinates = new Coordinates(coordinates.getLongitude(), coordinates.getLatitude(), coordinates.getHeight() - 3);
-			System.out.println("Baloon#" + this.name + "(" + this.id + "): is unknown. Can't see the a thing.");
+			Printer.addLine("Baloon#" + this.name + "(" + this.id + "): is unknown. Can't see the a thing.");
 		} else if (weather.equals("SNOW")) {
 			this.coordinates = new Coordinates(coordinates.getLongitude(), coordinates.getLatitude(), coordinates.getHeight() - 15);
-			System.out.println("Baloon#" + this.name + "(" + this.id + "): is going down! TOO FAST DOWN TOO FASTT UGGGGGGHHHHHHH");
+			Printer.addLine("Baloon#" + this.name + "(" + this.id + "): is going down! TOO FAST DOWN TOO FASTT UGGGGGGHHHHHHH");
 		} else {
 			System.out.println("THE BALOON IS STUCK IN AN ANOMALOUS WORMHOLE! IT IS STUCK AND WE ARE DOOOMMMMEED");
 			return;
@@ -45,7 +46,7 @@ public class Baloon extends Aircraft implements Flyable{
 
         if (this.coordinates.getHeight() == 0)
         {
-			System.out.println(	"Baloon#" + this.name + "(" + this.id + "): has safely landed at " + 
+			Printer.addLine(	"Baloon#" + this.name + "(" + this.id + "): has safely landed at " + 
 								getLandingCoordinates(coordinates) +
 								". The terror of being a BALLOON is over!");
             this.weatherTower.unregister(this);
@@ -64,6 +65,6 @@ public class Baloon extends Aircraft implements Flyable{
 		this.weatherTower.register(this);
 		String message = "Baloon#" + super.name + "(" + super.id + ")" + "has registered.";
 		//Don't use sout, does some weird stuff
-		System.out.println(message);
+		Printer.addLine(message);
 	}
 }

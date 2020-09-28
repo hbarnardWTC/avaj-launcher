@@ -36,10 +36,10 @@ public abstract class Tower{
 	}
 
 	protected void conditionsChanged(){
-		int i = 0;
-		while (i < observers.size()) {
+		int i = observers.size() - 1;
+		while (i >= 0) {
 			observers.get(i).updateConditions();
-			i++;
+			i--;
 		}
 	}
 }

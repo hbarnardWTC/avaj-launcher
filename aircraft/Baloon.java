@@ -40,17 +40,17 @@ public class Baloon extends Aircraft implements Flyable{
 			this.coordinates = new Coordinates(coordinates.getLongitude(), coordinates.getLatitude(), coordinates.getHeight() - 15);
 			Printer.addLine("Baloon#" + this.name + "(" + this.id + "): is going down! TOO FAST DOWN TOO FASTT UGGGGGGHHHHHHH");
 		} else {
-			System.out.println("THE BALOON IS STUCK IN AN ANOMALOUS WORMHOLE! IT IS STUCK AND WE ARE DOOOMMMMEED");
+			Printer.addLine("THE BALOON IS STUCK IN AN ANOMALOUS WORMHOLE! IT IS STUCK AND WE ARE DOOOMMMMEED");
 			return;
 		}
 
         if (this.coordinates.getHeight() == 0)
         {
-			Printer.addLine(	"Baloon#" + this.name + "(" + this.id + "): has safely landed at " + 
+			Printer.addLine("Baloon#" + this.name + "(" + this.id + "): has safely landed at " + 
 								getLandingCoordinates(coordinates) +
 								". The terror of being a BALLOON is over!");
             this.weatherTower.unregister(this);
-            System.out.println("Tower says: Baloon#" + this.name + "(" + this.id + ") unregistered from weather tower. Good riddance!");
+            Printer.addLine("Tower says: Baloon#" + this.name + "(" + this.id + ") unregistered from weather tower. Good riddance!");
         }
 	}
 

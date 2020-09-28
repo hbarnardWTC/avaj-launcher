@@ -18,7 +18,7 @@ public class Main {
         String fileName = args[0];
 
         WeatherTower weatherTower = new WeatherTower();
-        Printer.setFile("Result");
+        Printer.setFile();
         int simulationCount = 0;
 
         try {
@@ -37,6 +37,7 @@ public class Main {
                     }
                 } catch (Exception e) {
                     System.out.println("First line does not contain an integer!");
+                    reader.close();
                     return;
                 }
             } else {
